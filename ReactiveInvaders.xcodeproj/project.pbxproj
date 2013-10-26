@@ -17,7 +17,7 @@
 		EEA2A002181BD575007553BE /* ECAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A001181BD575007553BE /* ECAppDelegate.m */; };
 		EEA2A005181BD575007553BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A003181BD575007553BE /* Main.storyboard */; };
 		EEA2A008181BD575007553BE /* ECViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A007181BD575007553BE /* ECViewController.m */; };
-		EEA2A00B181BD575007553BE /* ECMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A00A181BD575007553BE /* ECMyScene.m */; };
+		EEA2A00B181BD575007553BE /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A00A181BD575007553BE /* GameScene.m */; };
 		EEA2A00D181BD575007553BE /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A00C181BD575007553BE /* Spaceship.png */; };
 		EEA2A00F181BD575007553BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A00E181BD575007553BE /* Images.xcassets */; };
 		EEA2A016181BD575007553BE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA2A015181BD575007553BE /* XCTest.framework */; };
@@ -53,8 +53,8 @@
 		EEA2A004181BD575007553BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEA2A006181BD575007553BE /* ECViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECViewController.h; sourceTree = "<group>"; };
 		EEA2A007181BD575007553BE /* ECViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECViewController.m; sourceTree = "<group>"; };
-		EEA2A009181BD575007553BE /* ECMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECMyScene.h; sourceTree = "<group>"; };
-		EEA2A00A181BD575007553BE /* ECMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECMyScene.m; sourceTree = "<group>"; };
+		EEA2A009181BD575007553BE /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		EEA2A00A181BD575007553BE /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		EEA2A00C181BD575007553BE /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		EEA2A00E181BD575007553BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EEA2A014181BD575007553BE /* ReactiveInvadersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveInvadersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +91,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EEA20BBC181BECA0002BC611 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EEA2A000181BD575007553BE /* ECAppDelegate.h */,
+				EEA2A001181BD575007553BE /* ECAppDelegate.m */,
+				EEA2A003181BD575007553BE /* Main.storyboard */,
+				EEA2A006181BD575007553BE /* ECViewController.h */,
+				EEA2A007181BD575007553BE /* ECViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		EEA20BBD181BECC0002BC611 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				EEA2A009181BD575007553BE /* GameScene.h */,
+				EEA2A00A181BD575007553BE /* GameScene.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		EEA29FE3181BD575007553BE = {
 			isa = PBXGroup;
 			children = (
@@ -127,13 +148,8 @@
 		EEA29FF7181BD575007553BE /* ReactiveInvaders */ = {
 			isa = PBXGroup;
 			children = (
-				EEA2A000181BD575007553BE /* ECAppDelegate.h */,
-				EEA2A001181BD575007553BE /* ECAppDelegate.m */,
-				EEA2A003181BD575007553BE /* Main.storyboard */,
-				EEA2A006181BD575007553BE /* ECViewController.h */,
-				EEA2A007181BD575007553BE /* ECViewController.m */,
-				EEA2A009181BD575007553BE /* ECMyScene.h */,
-				EEA2A00A181BD575007553BE /* ECMyScene.m */,
+				EEA20BBD181BECC0002BC611 /* Game */,
+				EEA20BBC181BECA0002BC611 /* Base */,
 				EEA2A00C181BD575007553BE /* Spaceship.png */,
 				EEA2A00E181BD575007553BE /* Images.xcassets */,
 				EEA29FF8181BD575007553BE /* Supporting Files */,
@@ -306,7 +322,7 @@
 			files = (
 				EEA2A008181BD575007553BE /* ECViewController.m in Sources */,
 				EEA2A002181BD575007553BE /* ECAppDelegate.m in Sources */,
-				EEA2A00B181BD575007553BE /* ECMyScene.m in Sources */,
+				EEA2A00B181BD575007553BE /* GameScene.m in Sources */,
 				EEA29FFE181BD575007553BE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

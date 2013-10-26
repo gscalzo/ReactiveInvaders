@@ -7,7 +7,7 @@
 //
 
 #import "ECViewController.h"
-#import "ECMyScene.h"
+#import "GameScene.h"
 
 @implementation ECViewController
 
@@ -21,7 +21,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [ECMyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
