@@ -1,4 +1,4 @@
 ReactiveInvaders
 ================
 
-A SpaceInvaders Cl
+A SpaceInvaders Clone using SpriteKit and ReactiveCocoa
