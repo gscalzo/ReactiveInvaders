@@ -41,17 +41,25 @@ Backup[ ]of[ ]*.numbers/
 
 .idea
 Gemfile.lock
-/PlusPlugg (toodev)/WeatherPlugg/WeatherPlugg.xcworkspace/contents.xcworkspacedata
-/PlusPlugg (toodev)/RulerPlugg/Podfile.lock
-/PlusPlugg (toodev)/RulerPlugg/Pods/
-/PlusPlugg/GaragePlugg/Pods/
-/PlusPlugg/GaragePlugg/Podfile.lock
-/PlusPlugg/BodyScalePlugg/Pods/
-/PlusPlugg/BatteryPlugg/Pods/
-/PlusPlugg/ThermoPlugg/Pods/
-/PlusPlugg (toodev)/WeatherPlugg/Pods/
-/PlusPlugg/BodyScalePlugg/Podfile.lock
-/PlusPlugg (toodev)/WeatherPlugg/Podfile.lock
+# Xcode
+.DS_Store
+*/build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+*.hmap
+*.xccheckout
+
+#CocoaPods
+Pods
 Podfile.lock
-Pods/
-/PlusPlugg/BatteryPlugg/Podfile.lock
