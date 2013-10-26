@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5DE68E1594744620A7FD7731 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2BBAA3B81C4882A211F7A5 /* libPods.a */; };
+		EEA29FF0181BD575007553BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA29FEF181BD575007553BE /* Foundation.framework */; };
+		EEA29FF2181BD575007553BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA29FF1181BD575007553BE /* CoreGraphics.framework */; };
+		EEA29FF4181BD575007553BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA29FF3181BD575007553BE /* UIKit.framework */; };
+		EEA29FF6181BD575007553BE /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA29FF5181BD575007553BE /* SpriteKit.framework */; };
+		EEA29FFC181BD575007553BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEA29FFA181BD575007553BE /* InfoPlist.strings */; };
+		EEA29FFE181BD575007553BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA29FFD181BD575007553BE /* main.m */; };
+		EEA2A002181BD575007553BE /* ECAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A001181BD575007553BE /* ECAppDelegate.m */; };
+		EEA2A005181BD575007553BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A003181BD575007553BE /* Main.storyboard */; };
+		EEA2A008181BD575007553BE /* ECViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A007181BD575007553BE /* ECViewController.m */; };
+		EEA2A00B181BD575007553BE /* ECMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A00A181BD575007553BE /* ECMyScene.m */; };
+		EEA2A00D181BD575007553BE /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A00C181BD575007553BE /* Spaceship.png */; };
+		EEA2A00F181BD575007553BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A00E181BD575007553BE /* Images.xcassets */; };
+		EEA2A016181BD575007553BE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA2A015181BD575007553BE /* XCTest.framework */; };
+		EEA2A017181BD575007553BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA29FEF181BD575007553BE /* Foundation.framework */; };
+		EEA2A018181BD575007553BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA29FF3181BD575007553BE /* UIKit.framework */; };
+		EEA2A020181BD575007553BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEA2A01E181BD575007553BE /* InfoPlist.strings */; };
+		EEA2A022181BD575007553BE /* ReactiveInvadersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA2A021181BD575007553BE /* ReactiveInvadersTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEA2A019181BD575007553BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA29FE4181BD575007553BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEA29FEB181BD575007553BE;
+			remoteInfo = ReactiveInvaders;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE76D7AAAD5047CDA103DEEB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EEA29FEC181BD575007553BE /* ReactiveInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA29FEF181BD575007553BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EEA29FF1181BD575007553BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EEA29FF3181BD575007553BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EEA29FF5181BD575007553BE /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		EEA29FF9181BD575007553BE /* ReactiveInvaders-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReactiveInvaders-Info.plist"; sourceTree = "<group>"; };
+		EEA29FFB181BD575007553BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EEA29FFD181BD575007553BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EEA29FFF181BD575007553BE /* ReactiveInvaders-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactiveInvaders-Prefix.pch"; sourceTree = "<group>"; };
+		EEA2A000181BD575007553BE /* ECAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECAppDelegate.h; sourceTree = "<group>"; };
+		EEA2A001181BD575007553BE /* ECAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECAppDelegate.m; sourceTree = "<group>"; };
+		EEA2A004181BD575007553BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEA2A006181BD575007553BE /* ECViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECViewController.h; sourceTree = "<group>"; };
+		EEA2A007181BD575007553BE /* ECViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECViewController.m; sourceTree = "<group>"; };
+		EEA2A009181BD575007553BE /* ECMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECMyScene.h; sourceTree = "<group>"; };
+		EEA2A00A181BD575007553BE /* ECMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECMyScene.m; sourceTree = "<group>"; };
+		EEA2A00C181BD575007553BE /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		EEA2A00E181BD575007553BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EEA2A014181BD575007553BE /* ReactiveInvadersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveInvadersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA2A015181BD575007553BE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EEA2A01D181BD575007553BE /* ReactiveInvadersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReactiveInvadersTests-Info.plist"; sourceTree = "<group>"; };
+		EEA2A01F181BD575007553BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EEA2A021181BD575007553BE /* ReactiveInvadersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactiveInvadersTests.m; sourceTree = "<group>"; };
+		FE2BBAA3B81C4882A211F7A5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEA29FE9181BD575007553BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA29FF2181BD575007553BE /* CoreGraphics.framework in Frameworks */,
+				EEA29FF4181BD575007553BE /* UIKit.framework in Frameworks */,
+				EEA29FF6181BD575007553BE /* SpriteKit.framework in Frameworks */,
+				EEA29FF0181BD575007553BE /* Foundation.framework in Frameworks */,
+				5DE68E1594744620A7FD7731 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA2A011181BD575007553BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA2A016181BD575007553BE /* XCTest.framework in Frameworks */,
+				EEA2A018181BD575007553BE /* UIKit.framework in Frameworks */,
+				EEA2A017181BD575007553BE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EEA29FE3181BD575007553BE = {
+			isa = PBXGroup;
+			children = (
+				EEA29FF7181BD575007553BE /* ReactiveInvaders */,
+				EEA2A01B181BD575007553BE /* ReactiveInvadersTests */,
+				EEA29FEE181BD575007553BE /* Frameworks */,
+				EEA29FED181BD575007553BE /* Products */,
+				AE76D7AAAD5047CDA103DEEB /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		EEA29FED181BD575007553BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEA29FEC181BD575007553BE /* ReactiveInvaders.app */,
+				EEA2A014181BD575007553BE /* ReactiveInvadersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEA29FEE181BD575007553BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEA29FEF181BD575007553BE /* Foundation.framework */,
+				EEA29FF1181BD575007553BE /* CoreGraphics.framework */,
+				EEA29FF3181BD575007553BE /* UIKit.framework */,
+				EEA29FF5181BD575007553BE /* SpriteKit.framework */,
+				EEA2A015181BD575007553BE /* XCTest.framework */,
+				FE2BBAA3B81C4882A211F7A5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEA29FF7181BD575007553BE /* ReactiveInvaders */ = {
+			isa = PBXGroup;
+			children = (
+				EEA2A000181BD575007553BE /* ECAppDelegate.h */,
+				EEA2A001181BD575007553BE /* ECAppDelegate.m */,
+				EEA2A003181BD575007553BE /* Main.storyboard */,
+				EEA2A006181BD575007553BE /* ECViewController.h */,
+				EEA2A007181BD575007553BE /* ECViewController.m */,
+				EEA2A009181BD575007553BE /* ECMyScene.h */,
+				EEA2A00A181BD575007553BE /* ECMyScene.m */,
+				EEA2A00C181BD575007553BE /* Spaceship.png */,
+				EEA2A00E181BD575007553BE /* Images.xcassets */,
+				EEA29FF8181BD575007553BE /* Supporting Files */,
+			);
+			path = ReactiveInvaders;
+			sourceTree = "<group>";
+		};
+		EEA29FF8181BD575007553BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEA29FF9181BD575007553BE /* ReactiveInvaders-Info.plist */,
+				EEA29FFA181BD575007553BE /* InfoPlist.strings */,
+				EEA29FFD181BD575007553BE /* main.m */,
+				EEA29FFF181BD575007553BE /* ReactiveInvaders-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEA2A01B181BD575007553BE /* ReactiveInvadersTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEA2A021181BD575007553BE /* ReactiveInvadersTests.m */,
+				EEA2A01C181BD575007553BE /* Supporting Files */,
+			);
+			path = ReactiveInvadersTests;
+			sourceTree = "<group>";
+		};
+		EEA2A01C181BD575007553BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEA2A01D181BD575007553BE /* ReactiveInvadersTests-Info.plist */,
+				EEA2A01E181BD575007553BE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEA29FEB181BD575007553BE /* ReactiveInvaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA2A025181BD575007553BE /* Build configuration list for PBXNativeTarget "ReactiveInvaders" */;
+			buildPhases = (
+				71B213E2581E4A6D83A55608 /* Check Pods Manifest.lock */,
+				EEA29FE8181BD575007553BE /* Sources */,
+				EEA29FE9181BD575007553BE /* Frameworks */,
+				EEA29FEA181BD575007553BE /* Resources */,
+				898AA6D1A23345599CFF3AB9 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReactiveInvaders;
+			productName = ReactiveInvaders;
+			productReference = EEA29FEC181BD575007553BE /* ReactiveInvaders.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEA2A013181BD575007553BE /* ReactiveInvadersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA2A028181BD575007553BE /* Build configuration list for PBXNativeTarget "ReactiveInvadersTests" */;
+			buildPhases = (
+				EEA2A010181BD575007553BE /* Sources */,
+				EEA2A011181BD575007553BE /* Frameworks */,
+				EEA2A012181BD575007553BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEA2A01A181BD575007553BE /* PBXTargetDependency */,
+			);
+			name = ReactiveInvadersTests;
+			productName = ReactiveInvadersTests;
+			productReference = EEA2A014181BD575007553BE /* ReactiveInvadersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEA29FE4181BD575007553BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EC;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = EffectiveCode;
+				TargetAttributes = {
+					EEA2A013181BD575007553BE = {
+						TestTargetID = EEA29FEB181BD575007553BE;
+					};
+				};
+			};
+			buildConfigurationList = EEA29FE7181BD575007553BE /* Build configuration list for PBXProject "ReactiveInvaders" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEA29FE3181BD575007553BE;
+			productRefGroup = EEA29FED181BD575007553BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEA29FEB181BD575007553BE /* ReactiveInvaders */,
+				EEA2A013181BD575007553BE /* ReactiveInvadersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEA29FEA181BD575007553BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA29FFC181BD575007553BE /* InfoPlist.strings in Resources */,
+				EEA2A00F181BD575007553BE /* Images.xcassets in Resources */,
+				EEA2A00D181BD575007553BE /* Spaceship.png in Resources */,
+				EEA2A005181BD575007553BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA2A012181BD575007553BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA2A020181BD575007553BE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71B213E2581E4A6D83A55608 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		898AA6D1A23345599CFF3AB9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEA29FE8181BD575007553BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA2A008181BD575007553BE /* ECViewController.m in Sources */,
+				EEA2A002181BD575007553BE /* ECAppDelegate.m in Sources */,
+				EEA2A00B181BD575007553BE /* ECMyScene.m in Sources */,
+				EEA29FFE181BD575007553BE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA2A010181BD575007553BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA2A022181BD575007553BE /* ReactiveInvadersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEA2A01A181BD575007553BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEA29FEB181BD575007553BE /* ReactiveInvaders */;
+			targetProxy = EEA2A019181BD575007553BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EEA29FFA181BD575007553BE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEA29FFB181BD575007553BE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EEA2A003181BD575007553BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEA2A004181BD575007553BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EEA2A01E181BD575007553BE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEA2A01F181BD575007553BE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEA2A023181BD575007553BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EEA2A024181BD575007553BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEA2A026181BD575007553BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE76D7AAAD5047CDA103DEEB /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReactiveInvaders/ReactiveInvaders-Prefix.pch";
+				INFOPLIST_FILE = "ReactiveInvaders/ReactiveInvaders-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EEA2A027181BD575007553BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE76D7AAAD5047CDA103DEEB /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReactiveInvaders/ReactiveInvaders-Prefix.pch";
+				INFOPLIST_FILE = "ReactiveInvaders/ReactiveInvaders-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EEA2A029181BD575007553BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReactiveInvaders.app/ReactiveInvaders";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReactiveInvaders/ReactiveInvaders-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ReactiveInvadersTests/ReactiveInvadersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EEA2A02A181BD575007553BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReactiveInvaders.app/ReactiveInvaders";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReactiveInvaders/ReactiveInvaders-Prefix.pch";
+				INFOPLIST_FILE = "ReactiveInvadersTests/ReactiveInvadersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEA29FE7181BD575007553BE /* Build configuration list for PBXProject "ReactiveInvaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA2A023181BD575007553BE /* Debug */,
+				EEA2A024181BD575007553BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA2A025181BD575007553BE /* Build configuration list for PBXNativeTarget "ReactiveInvaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA2A026181BD575007553BE /* Debug */,
+				EEA2A027181BD575007553BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA2A028181BD575007553BE /* Build configuration list for PBXNativeTarget "ReactiveInvadersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA2A029181BD575007553BE /* Debug */,
+				EEA2A02A181BD575007553BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEA29FE4181BD575007553BE /* Project object */;
+}
