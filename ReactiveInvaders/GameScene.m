@@ -10,20 +10,16 @@
 #import <CoreMotion/CoreMotion.h>
 
 #pragma mark - Custom Type Definitions
-//1
-typedef enum InvaderType {
-    InvaderTypeA,
-    InvaderTypeB,
-    InvaderTypeC
-} InvaderType;
 
-//2
 #define kInvaderSize CGSizeMake(24, 16)
 #define kInvaderGridSpacing CGSizeMake(12, 12)
 #define kInvaderRowCount 6
 #define kInvaderColCount 6
-//3
+
 #define kInvaderName @"invader"
+
+#define kShipSize CGSizeMake(30, 16)
+#define kShipName @"ship"
 
 #pragma mark - Private GameScene Properties
 
