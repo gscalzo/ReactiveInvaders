@@ -25,6 +25,16 @@
 #define kScoreHudName @"scoreHud"
 #define kHealthHudName @"healthHud"
 
+
+
+typedef enum InvaderMovementDirection {
+    InvaderMovementDirectionRight,
+    InvaderMovementDirectionLeft,
+    InvaderMovementDirectionDownThenRight,
+    InvaderMovementDirectionDownThenLeft,
+    InvaderMovementDirectionNone
+} InvaderMovementDirection;
+
 #pragma mark - Private GameScene Properties
 
 @interface GameScene (){
@@ -32,6 +42,11 @@
 }
 
 @property BOOL contentCreated;
+
+@property InvaderMovementDirection invaderMovementDirection;
+@property NSTimeInterval timeOfLastMove;
+@property NSTimeInterval timePerMove;
+
 @end
 
 @implementation GameScene
@@ -45,6 +60,14 @@
     if (!self.contentCreated) {
         [self setupItems];
         self.contentCreated = YES;
+        
+        
+        //1
+        self.invaderMovementDirection = InvaderMovementDirectionRight;
+        //2
+        self.timePerMove = 1.0;
+        //3
+        self.timeOfLastMove = 0.0;
     }
 }
 
@@ -134,23 +157,88 @@
         id (^ctor)(id value) = ctors[value[@"type"]];
         return ctor(value);
     }];
-    
-    [nodes all:^BOOL(id value) {
-        return YES;
-    }];
 }
 
 
 
 #pragma mark - Scene Update
 
+
+
 - (void)update:(NSTimeInterval)currentTime
 {
+    [self moveInvadersForUpdate:currentTime];
 }
 
 #pragma mark - Scene Update Helpers
 
+// This method will get invoked by update:
+-(void)moveInvadersForUpdate:(NSTimeInterval)currentTime {
+    //1
+    if (currentTime - self.timeOfLastMove < self.timePerMove) return;
+    
+    self.invaderMovementDirection = [self invaderMovementDirectionAfterMovement:self.invaderMovementDirection];
+    
+    
+    //2
+    [self enumerateChildNodesWithName:kInvaderName usingBlock:^(SKNode *node, BOOL *stop) {
+        switch (self.invaderMovementDirection) {
+            case InvaderMovementDirectionRight:
+                node.position = CGPointMake(node.position.x + 10, node.position.y);
+                break;
+            case InvaderMovementDirectionLeft:
+                node.position = CGPointMake(node.position.x - 10, node.position.y);
+                break;
+            case InvaderMovementDirectionDownThenLeft:
+            case InvaderMovementDirectionDownThenRight:
+                node.position = CGPointMake(node.position.x, node.position.y - 10);
+                break;
+            InvaderMovementDirectionNone:
+            default:
+                break;
+        }
+    }];
+    
+    //3
+    self.timeOfLastMove = currentTime;
+}
+
 #pragma mark - Invader Movement Helpers
+
+-(InvaderMovementDirection)invaderMovementDirectionAfterMovement:(InvaderMovementDirection)proposedMovementDirection {
+    
+    RACSequence *aliens = [nodes filter:^(SKNode *item){
+        return [item.name isEqual:kInvaderName];
+    }];
+    
+    if ([aliens any:^(id value){
+        SKNode *node = (SKNode *)value;
+        return (BOOL)((proposedMovementDirection == InvaderMovementDirectionRight) &&
+                      (CGRectGetMaxX(node.frame) >= node.scene.size.width - 1.0f));
+        
+    }]) {
+        return InvaderMovementDirectionDownThenLeft;
+    }
+    
+    if ([aliens any:^(id value){
+        SKNode *node = (SKNode *)value;
+        return (BOOL)((proposedMovementDirection == InvaderMovementDirectionLeft) &&
+                      (CGRectGetMinX(node.frame) <= 1.0f));
+        
+    }]) {
+        return InvaderMovementDirectionDownThenRight;
+    }
+    
+    if (proposedMovementDirection == InvaderMovementDirectionDownThenLeft) {
+        return InvaderMovementDirectionLeft;
+    }
+    
+    if (proposedMovementDirection == InvaderMovementDirectionDownThenRight) {
+        return InvaderMovementDirectionRight;
+    }
+
+    return InvaderMovementDirectionRight;
+}
 
 #pragma mark - Bullet Helpers
 
