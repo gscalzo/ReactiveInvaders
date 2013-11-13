@@ -41,12 +41,6 @@ typedef enum InvaderMovementDirection {
     RACSequence *nodes;
 }
 
-@property BOOL contentCreated;
-
-@property InvaderMovementDirection invaderMovementDirection;
-@property NSTimeInterval timeOfLastMove;
-@property NSTimeInterval timePerMove;
-
 @end
 
 @implementation GameScene
@@ -57,17 +51,15 @@ typedef enum InvaderMovementDirection {
 
 - (void)didMoveToView:(SKView *)view
 {
-    if (!self.contentCreated) {
+    if (!nodes.head) {
         [self setupItems];
-        self.contentCreated = YES;
         
-        
-        //1
-        self.invaderMovementDirection = InvaderMovementDirectionRight;
-        //2
-        self.timePerMove = 1.0;
-        //3
-        self.timeOfLastMove = 0.0;
+        RACSignal *updateEventSignal = [RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]];
+        [[updateEventSignal scanWithStart:@(InvaderMovementDirectionRight) reduce:^id(id running, id next) {
+            return @([self invaderMovementDirectionAfterMovement:[running integerValue]]);
+        }] subscribeNext:^(id x) {
+            [self moveInvadersForUpdate:[x integerValue]];
+        }];
     }
 }
 
@@ -123,7 +115,8 @@ typedef enum InvaderMovementDirection {
 
 #pragma mark - create content
 
--(void)setupItems {
+- (void)setupItems
+{
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:@{ @"type": kShipName,
                         @"index":@0}];
@@ -160,29 +153,12 @@ typedef enum InvaderMovementDirection {
 }
 
 
-
 #pragma mark - Scene Update
 
-
-
-- (void)update:(NSTimeInterval)currentTime
+- (void)moveInvadersForUpdate:(InvaderMovementDirection)invaderMovementDirection
 {
-    [self moveInvadersForUpdate:currentTime];
-}
-
-#pragma mark - Scene Update Helpers
-
-// This method will get invoked by update:
--(void)moveInvadersForUpdate:(NSTimeInterval)currentTime {
-    //1
-    if (currentTime - self.timeOfLastMove < self.timePerMove) return;
-    
-    self.invaderMovementDirection = [self invaderMovementDirectionAfterMovement:self.invaderMovementDirection];
-    
-    
-    //2
     [self enumerateChildNodesWithName:kInvaderName usingBlock:^(SKNode *node, BOOL *stop) {
-        switch (self.invaderMovementDirection) {
+        switch (invaderMovementDirection) {
             case InvaderMovementDirectionRight:
                 node.position = CGPointMake(node.position.x + 10, node.position.y);
                 break;
@@ -198,46 +174,39 @@ typedef enum InvaderMovementDirection {
                 break;
         }
     }];
-    
-    //3
-    self.timeOfLastMove = currentTime;
 }
 
-#pragma mark - Invader Movement Helpers
+#pragma mark - Invader Movement
 
--(InvaderMovementDirection)invaderMovementDirectionAfterMovement:(InvaderMovementDirection)proposedMovementDirection {
-    
+- (InvaderMovementDirection)invaderMovementDirectionAfterMovement:(InvaderMovementDirection)proposedMovementDirection
+{
     RACSequence *aliens = [nodes filter:^(SKNode *item){
         return [item.name isEqual:kInvaderName];
     }];
     
-    if ([aliens any:^(id value){
-        SKNode *node = (SKNode *)value;
-        return (BOOL)((proposedMovementDirection == InvaderMovementDirectionRight) &&
-                      (CGRectGetMaxX(node.frame) >= node.scene.size.width - 1.0f));
-        
-    }]) {
-        return InvaderMovementDirectionDownThenLeft;
+    switch (proposedMovementDirection) {
+        case InvaderMovementDirectionRight:
+            if ([aliens any:^(SKNode *node){
+                return (BOOL)(CGRectGetMaxX(node.frame) >= node.scene.size.width - 1.0f);
+            }]) {
+                return InvaderMovementDirectionDownThenLeft;
+            }
+            break;
+        case InvaderMovementDirectionLeft:
+            if ([aliens any:^(SKNode *node){
+                return (BOOL)(CGRectGetMinX(node.frame) <= 1.0f);
+            }]) {
+                return InvaderMovementDirectionDownThenRight;
+            }
+            break;
+        case InvaderMovementDirectionDownThenLeft:
+            return InvaderMovementDirectionLeft;
+        case InvaderMovementDirectionDownThenRight:
+            return InvaderMovementDirectionRight;
+        default:
+            break;
     }
-    
-    if ([aliens any:^(id value){
-        SKNode *node = (SKNode *)value;
-        return (BOOL)((proposedMovementDirection == InvaderMovementDirectionLeft) &&
-                      (CGRectGetMinX(node.frame) <= 1.0f));
-        
-    }]) {
-        return InvaderMovementDirectionDownThenRight;
-    }
-    
-    if (proposedMovementDirection == InvaderMovementDirectionDownThenLeft) {
-        return InvaderMovementDirectionLeft;
-    }
-    
-    if (proposedMovementDirection == InvaderMovementDirectionDownThenRight) {
-        return InvaderMovementDirectionRight;
-    }
-
-    return InvaderMovementDirectionRight;
+    return proposedMovementDirection;
 }
 
 #pragma mark - Bullet Helpers
