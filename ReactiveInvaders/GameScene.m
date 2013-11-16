@@ -37,10 +37,7 @@ typedef enum InvaderMovementDirection {
 
 #pragma mark - Private GameScene Properties
 
-@interface GameScene (){
-    RACSequence *nodes;
-}
-
+@interface GameScene ()
 @end
 
 @implementation GameScene
@@ -49,18 +46,30 @@ typedef enum InvaderMovementDirection {
 
 #pragma mark - Scene Setup and Content Creation
 
+- (void)setupWorld
+{
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+}
+
 - (void)didMoveToView:(SKView *)view
 {
-    if (!nodes.head) {
-        [self setupItems];
-        
-        RACSignal *updateEventSignal = [RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]];
-        [[updateEventSignal scanWithStart:@(InvaderMovementDirectionRight) reduce:^id(id running, id next) {
-            return @([self invaderMovementDirectionAfterMovement:[running integerValue]]);
-        }] subscribeNext:^(id x) {
-            [self moveInvadersForUpdate:[x integerValue]];
-        }];
-    }
+    [self setupWorld];
+    
+    id nodes = [self createGameNodes];
+    RACSignal *updateEventSignal = [RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]];
+    
+    [[updateEventSignal scanWithStart:@(InvaderMovementDirectionRight) reduce:^id(id running, id next) {
+        return @([self invaderMovementDirectionAfterMovement:[running integerValue] nodes:nodes]);
+    }] subscribeNext:^(id x) {
+        [self moveInvadersForUpdate:[x integerValue] nodes:nodes];
+    }];
+    
+    RACSignal *rapidupdateEventSignal = [RACSignal interval:1.0f/30.0f onScheduler:[RACScheduler mainThreadScheduler]];
+    CMMotionManager *motionManager = [CMMotionManager new];
+    [motionManager startAccelerometerUpdates];
+    [rapidupdateEventSignal subscribeNext:^(id x) {
+        [self moveShipBasedOnMotion:motionManager nodes:nodes];
+    }];
 }
 
 
@@ -86,6 +95,11 @@ typedef enum InvaderMovementDirection {
     ship.name = kShipName;
     ship.position = CGPointMake(self.size.width / 2.0f, kShipSize.height/2.0f);
     [self addChild:ship];
+    ship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ship.frame.size];
+    ship.physicsBody.dynamic = YES;
+    ship.physicsBody.affectedByGravity = NO;
+    ship.physicsBody.mass = 0.02;
+    
     return ship;
 }
 
@@ -115,7 +129,7 @@ typedef enum InvaderMovementDirection {
 
 #pragma mark - create content
 
-- (void)setupItems
+- (id)createGameNodes
 {
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:@{ @"type": kShipName,
@@ -146,7 +160,7 @@ typedef enum InvaderMovementDirection {
                             } copy],
                             };
     
-    nodes = [items.rac_sequence map:^(id value){
+    return [items.rac_sequence map:^(id value){
         id (^ctor)(id value) = ctors[value[@"type"]];
         return ctor(value);
     }];
@@ -155,9 +169,13 @@ typedef enum InvaderMovementDirection {
 
 #pragma mark - Scene Update
 
-- (void)moveInvadersForUpdate:(InvaderMovementDirection)invaderMovementDirection
+- (void)moveInvadersForUpdate:(InvaderMovementDirection)invaderMovementDirection nodes:(id)nodes
 {
-    [self enumerateChildNodesWithName:kInvaderName usingBlock:^(SKNode *node, BOOL *stop) {
+    RACSequence *aliens = [nodes filter:^(SKNode *item){
+        return [item.name isEqual:kInvaderName];
+    }];
+    
+    [aliens.signal subscribeNext:^(SKNode *node) {
         switch (invaderMovementDirection) {
             case InvaderMovementDirectionRight:
                 node.position = CGPointMake(node.position.x + 10, node.position.y);
@@ -176,9 +194,20 @@ typedef enum InvaderMovementDirection {
     }];
 }
 
+-(void)moveShipBasedOnMotion:(CMMotionManager *)motionManager nodes:(id)nodes
+{
+    SKSpriteNode* ship = [[nodes filter:^(SKNode *item){
+        return [item.name isEqual:kShipName];
+    }] head];
+    CMAccelerometerData* data = motionManager.accelerometerData;
+    if (fabs(data.acceleration.x) > 0.2) {
+        [ship.physicsBody applyForce:CGVectorMake(40.0 * data.acceleration.x, 0)];
+    }
+}
+
 #pragma mark - Invader Movement
 
-- (InvaderMovementDirection)invaderMovementDirectionAfterMovement:(InvaderMovementDirection)proposedMovementDirection
+- (InvaderMovementDirection)invaderMovementDirectionAfterMovement:(InvaderMovementDirection)proposedMovementDirection nodes:(id)nodes
 {
     RACSequence *aliens = [nodes filter:^(SKNode *item){
         return [item.name isEqual:kInvaderName];
